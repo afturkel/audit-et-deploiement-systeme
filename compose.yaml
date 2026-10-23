@@ -1,0 +1,26 @@
+# Audit de la machine hôte depuis un conteneur
+# Lancement : docker compose run --rm audit
+services:
+  audit:
+    build: .
+    image: sae-audit
+    # Voir les processus, le réseau et le nom de la machine hôte
+    pid: host
+    network_mode: host
+    uts: host
+    # Voir le processus de chaque connexion : il faut SYS_PTRACE
+    # et désactiver la protection AppArmor de Docker
+    cap_add:
+      - SYS_PTRACE
+    security_opt:
+      - apparmor=unconfined
+    volumes:
+      # Fichiers de l'hôte, en lecture seule, sous /host
+      - /:/host:ro
+      # Parler au systemd de l'hôte (pour systemctl)
+      - /run/systemd:/run/systemd:ro
+    # Sans cette variable, systemctl refuse de répondre
+    environment:
+      - SYSTEMD_IGNORE_CHROOT=1
+    # Lire les fichiers de l'hôte sous /host
+    command: ["-r", "/host"]
