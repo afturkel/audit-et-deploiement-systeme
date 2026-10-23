@@ -1,5 +1,7 @@
 # sae-audit
 
+Auteur : Ahmet Fatih
+
 Dépôt Git : https://github.com/afturkel/audit-et-deploiement-systeme
 
 Cet outil regarde l'état d'un ordinateur Linux (Debian ou Ubuntu) et affiche le résultat. Il est écrit en Ruby. On peut aussi enregistrer le résultat dans un fichier JSON, ou le lancer dans Docker pour regarder l'ordinateur hôte (le vrai ordinateur qui contient Docker).
