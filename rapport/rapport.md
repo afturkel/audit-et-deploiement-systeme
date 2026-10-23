@@ -1,6 +1,6 @@
 # Rapport : audit et déploiement d'un système Linux
 
-Projet individuel, BUT Informatique 3, parcours DACS.
+Projet SAE, BUT Informatique 3, parcours DACS.
 
 Dépôt Git : https://github.com/afturkel/audit-et-deploiement-systeme
 
